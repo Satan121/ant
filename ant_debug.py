@@ -19,7 +19,7 @@ PheromoneDeltaTrailList = []#释放信息素列表（矩阵）
 CityDistanceList = []#两两城市距离列表(矩阵)
 AntList = []#蚂蚁列表
 class BACA:#定义类BACA，执行蚁群基本算法
-    def __init__(self, cityCount=51, antCount=51, q=80, alpha=1, beta=3, rou=0.4, nMax=100):
+    def __init__(self, cityCount=51, antCount=51, q=20, alpha=2.6, beta=6, rou=0.2, nMax=100):
         #self, cityCount=51, antCount=50, q=80, alpha=2, beta=5, rou=0.3, nMax=40
         #初始化方法，antCount为蚂蚁数，nMax为迭代次数
         self.CityCount = cityCount#城市数量，本例中为手工输入，也可以根据城市数据列表编写程序获得
@@ -138,7 +138,7 @@ class ANT:#定义蚂蚁类，使得蚂蚁具有相应的方法和属性
             self.TransferProbabilityList.append((city, transferProbability))#将城市序号和对应的转移城市概率追加到转移概率列表中
         threshold = sumProbability * random.random()#将概率值乘以一个0~1的随机数，获取轮盘指针值
         for (cityNum, cityProb) in self.TransferProbabilityList:#再次循环遍历概率列表
-            if threshold <= cityProb:#如果轮盘指针值大于概率值，则返回对应的城市序号
+            if cityProb >= threshold  :#如果轮盘指针值大于概率值，则返回对应的城市序号
                 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! key step!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 return (cityNum)
         return (0)#否则返回0

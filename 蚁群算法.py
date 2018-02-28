@@ -213,6 +213,17 @@ if __name__ == '__main__':#该语句说明之后的语句在该.py文件作为�
     theBaca = BACA()#BACA类的实例化
     theBaca.ReadCityInfo('eil51.tsp')#读取城市数据
     theBaca.Search()#执行Search()方法
+
+
+
+
+
+
+
+
+
+
+
 代码2
 
 去除注释，美化代码，增加了最大最小蚁群规则（详见文末资料），求解效果变好
